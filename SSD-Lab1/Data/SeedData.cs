@@ -13,10 +13,10 @@ namespace SSD_Lab1.Data
             var context = serviceProivder.GetRequiredService<ApplicationDbContext>();
 
             if (appSecrets.SupervisorPassword.Length < 6)
-                throw new Exception("Supervisor password must be at least 6 characters. Update your secrets file.");
+                return;
 
             if (appSecrets.EmployeePassword.Length < 6)
-                throw new Exception("Employee password must be at least 6 characters. Update your secrets file.");
+                return;
 
             string[] roles = new[] { "Supervisor", "Employee" };
             foreach (var role in roles)
